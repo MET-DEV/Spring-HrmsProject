@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import metproject.hrms.business.abstracts.JobPositionService;
+import metproject.hrms.core.utilities.result.DataResult;
+import metproject.hrms.core.utilities.result.Result;
 import metproject.hrms.entities.concretes.JobPosition;
 
 @RestController
@@ -22,8 +25,13 @@ public class JobPositionsController {
 	}
 	
 	@GetMapping("/getall")
-	public List<JobPosition> getall(){
+	public DataResult<List<JobPosition>> getall(){
 		return jobPositionService.getAll();
+	}
+	
+	@PostMapping("/add")
+	public Result add(JobPosition jobPosition) {
+		return jobPositionService.add(jobPosition);
 	}
 	
 

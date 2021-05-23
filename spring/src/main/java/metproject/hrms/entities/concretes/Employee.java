@@ -35,10 +35,13 @@ public class Employee {
 	@Column(name="e_mail")
 	private String email;
 	
-	
+	@Column(name="year_of_birth")
+	private int yearOfBirth;
 	
 	@Column(name="password")
 	private String password;
+	
+	private String rPassword;
 	
 	public Employee() {
 		

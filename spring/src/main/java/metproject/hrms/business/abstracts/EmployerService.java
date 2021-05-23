@@ -4,10 +4,10 @@ import java.util.List;
 
 import metproject.hrms.core.utilities.result.DataResult;
 import metproject.hrms.core.utilities.result.Result;
-import metproject.hrms.entities.concretes.Employee;
 
+import metproject.hrms.entities.concretes.Employer;
 
-public interface EmployeeService {
-	DataResult<List<Employee>> getAll();
-	Result add(Employee employee);
+public interface EmployerService {
+	DataResult<List<Employer>> getAll();
+	Result add(Employer employer);
 }
