@@ -2,6 +2,10 @@ package metproject.hrms.core.utilities.business;
 
 
 
+
+
+
+import metproject.hrms.core.adapters.MernisAdapter;
 import metproject.hrms.core.utilities.result.ErrorResult;
 import metproject.hrms.core.utilities.result.Result;
 import metproject.hrms.core.utilities.result.SuccessResult;
@@ -12,11 +16,17 @@ public class BusinessRules {
 	
 	
 	public static boolean employeeCheckService(Employee employee) {
-		
-		
-			if(employee.getPassword().equals(employee.getRPassword())&&employee.getPassword().length()>=6) {
-				return true;
+		MernisAdapter adapter=new MernisAdapter();
+			if(adapter.checkRealEmployee(employee)) {
+				if(employee.getPassword().equals(employee.getRPassword())&&employee.getPassword().length()>=6) {
+					return true;
+				}
 			}
+	
+			
+			
+		
+			
 		
 		return false;
 	}

@@ -7,6 +7,8 @@
 
 package tr.gov.nvi.tckimlik.WS;
 
+
+
 public interface KPSPublic extends javax.xml.rpc.Service {
     public java.lang.String getKPSPublicSoapAddress();
 

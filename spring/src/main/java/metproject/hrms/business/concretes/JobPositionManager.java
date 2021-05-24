@@ -44,7 +44,7 @@ public class JobPositionManager implements JobPositionService{
 	}
 	private boolean checkAlreadyExistJob(JobPosition job) {
 		
-		var result=jobPositionDao.findAll();
+		List<JobPosition> result=jobPositionDao.findAll();
 		for (JobPosition jobPosition : result) {
 			if (jobPosition.getName().equals(job.getName())) {
 				return false;

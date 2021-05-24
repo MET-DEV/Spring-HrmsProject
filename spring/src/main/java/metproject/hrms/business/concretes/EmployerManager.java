@@ -31,7 +31,7 @@ public class EmployerManager implements EmployerService{
 	}
 	@Override
 	public Result add(Employer employer) {
-		var result=BusinessRules.isEmptyEmployer(employer);
+		Result result=BusinessRules.isEmptyEmployer(employer);
 		if(result.isSuccess()) {
 			if (checkAlreadyUser(employer)) {
 				return new SuccessResult("Ekleme başarılı");
@@ -41,7 +41,7 @@ public class EmployerManager implements EmployerService{
 	}
 	
 	private boolean checkAlreadyUser(Employer employer) {
-		var employerList=employerDao.findAll();
+		List<Employer> employerList=employerDao.findAll();
 		
 		for (Employer currentlyEmployer : employerList) {
 			if (employer.getEmail().equals(currentlyEmployer.getEmail())) {

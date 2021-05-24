@@ -33,9 +33,9 @@ public class EmployeeManager implements EmployeeService{
 
 	@Override
 	public Result add(Employee employee) {
-		var control=checkAlreadyExist(employee);
+		boolean control=checkAlreadyExist(employee);
 		if (control) {
-			var result=BusinessRules.employeeCheckService(employee);
+			boolean result=BusinessRules.employeeCheckService(employee);
 			if (result) {
 				employeeDao.save(employee);
 				return new SuccessResult("İş arayan kişi eklendi");
@@ -47,7 +47,7 @@ public class EmployeeManager implements EmployeeService{
 	
 	
 	private boolean checkAlreadyExist(Employee employee) {
-		var result=employeeDao.findAll();
+		List<Employee> result=employeeDao.findAll();
 		for (Employee employee2 : result) {
 			if(employee2.getEmail().equals(employee.getEmail())) {
 				return false;
