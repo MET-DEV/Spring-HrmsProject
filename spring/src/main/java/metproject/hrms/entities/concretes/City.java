@@ -1,7 +1,5 @@
 package metproject.hrms.entities.concretes;
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,38 +12,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name="employers")
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="cities")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","job_ads"})
-public class Employer {
+public class City {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="company_name")
-	private String name;
-	
-	@Column(name="web_site")
-	private String webSite;
-	
-	@Column(name="e_mail")
-	private String email;
-	
-	@Column(name="phone_number")
-	private String phoneNumber;
-	
-	@Column(name="password")
-	private String password;
+	@Column(name="city_name")
+	private String cityName;
 	
 	
 	
+
 	
 
 }
