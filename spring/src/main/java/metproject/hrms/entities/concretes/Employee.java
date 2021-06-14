@@ -2,16 +2,27 @@ package metproject.hrms.entities.concretes;
 
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="employees")
 @Data
@@ -46,17 +57,23 @@ public class Employee {
 	
 	private String rPassword;
 	
-	public Employee() {
-		
-	}
+	@OneToMany(targetEntity = Language.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="employee_id",referencedColumnName = "employee_id")
+	private List<Language> languages;
 	
-	public Employee(int id, String firstName, String lastName, String email, String nationaltyId, String password) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.nationaltyId = nationaltyId;
-		this.password = password;
-	}
+	@OneToMany(targetEntity = Contact.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="employee_id",referencedColumnName = "employee_id")
+	private List<Contact> contacts;
+	
+	@OneToMany(targetEntity = Technology.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="employee_id",referencedColumnName = "employee_id")
+	private List<Technology> technology;
+	
+	@OneToMany(targetEntity = Experience.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="employee_id",referencedColumnName = "employee_id")
+	private List<Experience> Experience;
+	
+	@OneToMany(targetEntity = Education.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="employee_id",referencedColumnName = "employee_id")
+	private List<Education> Education;
 }

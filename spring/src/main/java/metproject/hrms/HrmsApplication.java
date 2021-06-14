@@ -1,5 +1,9 @@
 package metproject.hrms;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -10,13 +14,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
+
 @SpringBootApplication
 @EnableSwagger2
 public class HrmsApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		SpringApplication.run(HrmsApplication.class, args);
+		
+
 	}
 	@Bean
     public Docket api() { 
