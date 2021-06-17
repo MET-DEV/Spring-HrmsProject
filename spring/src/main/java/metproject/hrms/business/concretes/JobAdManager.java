@@ -36,4 +36,11 @@ public class JobAdManager implements JobAdService {
 		return new SuccessDataResult<List<JobAd>>(jobAdDao.getByEmployerId(employerId));
 	}
 
+
+	@Override
+	public DataResult<JobAd> getById(int id) {
+		
+		return new SuccessDataResult<JobAd>(jobAdDao.getById(id),"ID ye göre getirildi");
+	}
+
 }

@@ -9,5 +9,6 @@ import metproject.hrms.entities.concretes.JobAd;
 public interface JobAdDao extends JpaRepository<JobAd, Integer> {
 	
 	List<JobAd> getByEmployerId(int employerId);
+	JobAd getById(int id);
 
 }

@@ -3,6 +3,7 @@ package metproject.hrms.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import metproject.hrms.core.utilities.result.DataResult;
 import metproject.hrms.core.utilities.result.Result;
 import metproject.hrms.entities.concretes.JobPosition;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobpositions")
 public class JobPositionsController {
