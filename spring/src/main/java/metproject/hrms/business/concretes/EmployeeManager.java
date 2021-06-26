@@ -58,5 +58,11 @@ public class EmployeeManager implements EmployeeService{
 		}
 		return true;
 	}
+
+	@Override
+	public DataResult<Employee> emailFilter(String email) {
+	
+		return new SuccessDataResult<Employee>(employeeDao.getByEmail(email)) ;
+	}
 	
 }

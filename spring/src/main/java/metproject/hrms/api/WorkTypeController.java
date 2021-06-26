@@ -10,32 +10,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import metproject.hrms.business.abstracts.EmployeeService;
+import metproject.hrms.business.abstracts.WorkTypeService;
 import metproject.hrms.core.utilities.result.DataResult;
 import metproject.hrms.core.utilities.result.Result;
-import metproject.hrms.entities.concretes.Employee;
+import metproject.hrms.entities.concretes.WorkType;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/employees")
-public class EmployeesController {
-	private EmployeeService employeeService;
-	
+@RequestMapping("/api/worktype")
+public class WorkTypeController {
+	private WorkTypeService workTypeService;
+
 	@Autowired
-	public EmployeesController(EmployeeService employeeService) {
+	public WorkTypeController(WorkTypeService workTypeService) {
 		super();
-		this.employeeService = employeeService;
+		this.workTypeService = workTypeService;
 	}
 	@GetMapping("/getall")
-	public DataResult<List<Employee>> getAll(){
-		return this.employeeService.getAll();
-	}
-	@GetMapping("/getbymail")
-	public DataResult<Employee> getByMail(String email){
-		return this.employeeService.emailFilter(email);
+	public DataResult<List<WorkType>> getAll(){
+		return workTypeService.getAll();
 	}
 	@PostMapping("/add")
-	public Result add(@RequestBody Employee employee) {
-		return this.employeeService.add(employee);
+	public Result add(@RequestBody WorkType workType) {
+		return workTypeService.add(workType);
 	}
+
 }

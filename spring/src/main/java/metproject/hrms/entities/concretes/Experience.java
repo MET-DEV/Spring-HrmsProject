@@ -42,6 +42,6 @@ public class Experience {
 	@ManyToOne()
 	@JoinColumn(name = "employee_id")
 	@JsonIgnore
-	private Employee employee;
+	private EmployeeCv employeeCv;
 
 }

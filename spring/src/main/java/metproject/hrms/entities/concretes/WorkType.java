@@ -1,15 +1,14 @@
 package metproject.hrms.entities.concretes;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -20,34 +19,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="languages")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","employees"})
-public class Language {
+@Table(name="work_type")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","job_ads"})
+public class WorkType {
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	
-	
-	@Column(name="language")
-	private String language;
-	
-	
-	@Column(name="language_level")
-	private int languageLevel;
-	
-	
-	
-	
-
-	@ManyToOne()
-	@JoinColumn(name = "employee_id")
-	@JsonIgnore
-	private EmployeeCv employeeCv;
-	
-	
-	
+	@Column(name="work_name")
+	private String workTypeName;
 
 }

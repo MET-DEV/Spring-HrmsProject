@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import metproject.hrms.business.abstracts.JobPositionService;
@@ -29,6 +30,10 @@ public class JobPositionsController {
 	@GetMapping("/getall")
 	public DataResult<List<JobPosition>> getall(){
 		return jobPositionService.getAll();
+	}
+	@GetMapping("/getbyid")
+	public DataResult<JobPosition> getById(@RequestParam int id){
+		return jobPositionService.getById(id);
 	}
 	
 	@PostMapping("/add")

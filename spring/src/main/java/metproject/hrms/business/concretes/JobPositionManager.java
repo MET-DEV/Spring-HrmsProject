@@ -37,6 +37,7 @@ public class JobPositionManager implements JobPositionService{
 			jobPositionDao.save(jobPosition);
 			
 			
+			
 			return new SuccessResult("Ekleme başarılı");
 		}
 		return new ErrorResult("Ekleme yapılmadı lütfen daha önceden girilmemiş bir meslek kolu seçin");
@@ -51,6 +52,12 @@ public class JobPositionManager implements JobPositionService{
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public DataResult<JobPosition> getById(int id) {
+		
+		return new SuccessDataResult<JobPosition>(jobPositionDao.getById(id));
 	}
 
 }

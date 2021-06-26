@@ -43,17 +43,30 @@ public class JobAd {
 	@Column(name="description")
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@Column(name="status")
+	private boolean status;
+	
+	
+	
+	
+	
+	@ManyToOne()
 	@JoinColumn(name="employer_id")
 	private Employer employer;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
 	@JoinColumn(name="job_position_id")
 	private JobPosition jobPosition;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
 	@JoinColumn(name="city_id")
 	private City city;
+	
+	@ManyToOne()
+	@JoinColumn(name="work_type_id")
+	private WorkType workType;
+	
+	
 	
 	
 	

@@ -40,6 +40,16 @@ public class EmployerManager implements EmployerService{
 		return new ErrorResult("Ekleme başarısız.");
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private boolean checkAlreadyUser(Employer employer) {
 		List<Employer> employerList=employerDao.findAll();
 		
@@ -49,6 +59,11 @@ public class EmployerManager implements EmployerService{
 			}
 		}
 		return true;
+	}
+	@Override
+	public DataResult<Employer> getById(int id) {
+		
+		return new SuccessDataResult<Employer>(employerDao.getById(id));
 	}
 
 }

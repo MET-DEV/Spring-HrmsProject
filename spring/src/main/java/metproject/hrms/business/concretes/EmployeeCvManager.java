@@ -23,7 +23,7 @@ public class EmployeeCvManager implements EmployeeCvService {
 	@Override
 	public DataResult<List<EmployeeCv>> getAll() {
 		
-		return new SuccessDataResult<List<EmployeeCv>>(cvDao.findAll());
+		return new SuccessDataResult<List<EmployeeCv>>(cvDao.findAll(),"getirildi");
 	}
 
 }

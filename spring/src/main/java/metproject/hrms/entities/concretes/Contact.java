@@ -40,6 +40,5 @@ public class Contact {
 	@JsonIgnore
 	private Employee employee;
 	
-	
 
 }
