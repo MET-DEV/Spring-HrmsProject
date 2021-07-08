@@ -32,11 +32,11 @@ public class Technology {
 	
 	
 	@Column(name = "technology_name")
-	private int technologyName;
+	private String technologyName;
 	
 	@ManyToOne()
 	@JoinColumn(name = "employee_id")
 	@JsonIgnore
-	private EmployeeCv employeeCv;
+	private Employee employee;
 
 }

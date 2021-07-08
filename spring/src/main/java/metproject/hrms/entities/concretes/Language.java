@@ -45,7 +45,7 @@ public class Language {
 	@ManyToOne()
 	@JoinColumn(name = "employee_id")
 	@JsonIgnore
-	private EmployeeCv employeeCv;
+	private Employee employee;
 	
 	
 	

@@ -64,5 +64,11 @@ public class EmployeeManager implements EmployeeService{
 	
 		return new SuccessDataResult<Employee>(employeeDao.getByEmail(email)) ;
 	}
+
+	@Override
+	public DataResult<Employee> getById(int id) {
+		
+		return new SuccessDataResult<Employee>(employeeDao.getById(id));
+	}
 	
 }

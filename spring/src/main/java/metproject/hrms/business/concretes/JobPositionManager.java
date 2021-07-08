@@ -60,4 +60,6 @@ public class JobPositionManager implements JobPositionService{
 		return new SuccessDataResult<JobPosition>(jobPositionDao.getById(id));
 	}
 
+	
+
 }

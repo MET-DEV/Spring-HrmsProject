@@ -6,5 +6,6 @@ import metproject.hrms.entities.concretes.Employee;
 public interface EmployeeDao extends JpaRepository<Employee,Integer>{
 	
 	Employee getByEmail(String email);
+	Employee getById(int id);
 	
 }

@@ -36,6 +36,7 @@ public class JobPositionsController {
 		return jobPositionService.getById(id);
 	}
 	
+	
 	@PostMapping("/add")
 	public Result add(JobPosition jobPosition) {
 		return jobPositionService.add(jobPosition);

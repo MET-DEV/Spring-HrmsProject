@@ -7,4 +7,5 @@ import metproject.hrms.entities.concretes.JobPosition;
 public interface JobPositionDao extends JpaRepository<JobPosition, Integer>{
 	JobPosition getById(int id);
 
+
 }
