@@ -10,4 +10,5 @@ public interface EmployeeCvService {
 
 	DataResult<List<EmployeeCv>> getAll();
 	Result add(EmployeeCv employeeCv);
+	DataResult<EmployeeCv> getByEmployeeId(int employeeId);
 }

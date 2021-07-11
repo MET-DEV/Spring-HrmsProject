@@ -25,7 +25,7 @@ public class TechnologiesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Technology technology,@RequestParam int employeeId) {
+	public Result add(@RequestParam int employeeId,@RequestBody Technology technology) {
 		return techService.add(technology, employeeId);
 	}
 }

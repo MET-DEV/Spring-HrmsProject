@@ -36,5 +36,10 @@ public class EmployeeCvManager implements EmployeeCvService {
 		cvDao.save(employeeCv);
 		return new SuccessResult();
 	}
+	@Override
+	public DataResult<EmployeeCv> getByEmployeeId(int employeeId) {
+		
+		return new SuccessDataResult<EmployeeCv>(cvDao.getByEmployee_Id(employeeId));
+	}
 
 }

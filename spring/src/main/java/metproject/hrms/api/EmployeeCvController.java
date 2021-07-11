@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import metproject.hrms.business.abstracts.EmployeeCvService;
@@ -29,6 +30,10 @@ public class EmployeeCvController {
 	@GetMapping("/getAll")
 	public DataResult<List<EmployeeCv>> getAll(){
 		return cvService.getAll();
+	}
+	@GetMapping("/getbyemployeeid")
+	public DataResult<EmployeeCv> getByEmployeeId(@RequestParam int id){
+		return cvService.getByEmployeeId(id);
 	}
 	@PostMapping("/add")
 	public Result add(@RequestBody EmployeeCv employeeCv){
