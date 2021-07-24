@@ -28,5 +28,9 @@ public class ExperiencesController {
 	public Result add(@RequestBody Experience experience,@RequestParam int employeeId) {
 		return experienceService.add(experience,employeeId);
 	}
+	@PostMapping("/delete")
+	public Result add(@RequestBody Experience experience) {
+		return experienceService.delete(experience);
+	}
 	
 }

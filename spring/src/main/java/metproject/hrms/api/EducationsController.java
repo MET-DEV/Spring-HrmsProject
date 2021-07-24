@@ -27,5 +27,9 @@ public class EducationsController {
 	public Result add(@RequestBody Education education,@RequestParam int employeeId) {
 		return eduService.add(education, employeeId);
 	}
+	@PostMapping("/delete")
+	public Result delete(@RequestBody Education education) {
+		return eduService.delete(education);
+	}
 	
 }

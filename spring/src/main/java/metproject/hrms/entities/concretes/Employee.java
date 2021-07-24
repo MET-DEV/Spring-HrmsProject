@@ -81,10 +81,15 @@ public class Employee {
 	@OneToMany(mappedBy = "employee")
 	private List<CvHeader> headers; 
 	
+	@OneToMany(mappedBy = "employee")
+	private List<Contact> contacts;
+	
 	
 	@OneToMany(mappedBy = "employee")
 	@JsonIgnore
 	private List<EmployeeCv> employeeCv;
+	
+	
 	
 	
    

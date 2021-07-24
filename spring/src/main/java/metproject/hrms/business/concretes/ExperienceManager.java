@@ -32,4 +32,12 @@ public class ExperienceManager implements ExperienceService {
 		return new SuccessResult();
 	}
 
+
+
+	@Override
+	public Result delete(Experience experience) {
+		experienceDao.delete(experience);
+		return new SuccessResult();
+	}
+
 }

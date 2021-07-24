@@ -30,4 +30,10 @@ public class EducationManager implements EducationService{
 		return new SuccessResult();
 	}
 
+	@Override
+	public Result delete(Education education) {
+		educationDao.delete(education);
+		return new SuccessResult();
+	}
+
 }

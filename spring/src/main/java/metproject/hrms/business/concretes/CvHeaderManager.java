@@ -25,6 +25,10 @@ public class CvHeaderManager implements CvHeaderService {
 	@Override
 	public Result add(CvHeader cvHeader,int employeeId) {
 		cvHeader.setEmployee(employeeService.getById(employeeId).getData());
+		 
+		if(cvHeaderDao.getByEmployeeId(employeeId)!=null) {
+			cvHeaderDao.delete(cvHeaderDao.getByEmployeeId(employeeId)); 
+		}
 		cvHeaderDao.save(cvHeader);
 		return new SuccessResult();
 	}

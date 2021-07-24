@@ -5,6 +5,7 @@ import metproject.hrms.entities.concretes.Education;
 
 public interface EducationService {
 	Result add(Education education, int employeeId);
+	Result delete(Education education);
 	
 
 }

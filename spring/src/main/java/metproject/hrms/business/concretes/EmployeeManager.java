@@ -33,15 +33,17 @@ public class EmployeeManager implements EmployeeService{
 
 	@Override
 	public Result add(Employee employee) {
-		boolean control=checkAlreadyExist(employee);
-		if (control) {
-			boolean result=BusinessRules.employeeCheckService(employee);
-			if (result) {
-				employeeDao.save(employee);
-				return new SuccessResult("İş arayan kişi eklendi");
-			}
-		}
-		return new ErrorResult("Ekleme başarısız");
+//		boolean control=checkAlreadyExist(employee);
+//		if (control) {
+//			boolean result=BusinessRules.employeeCheckService(employee);
+//			if (result) {
+//				employeeDao.save(employee);
+//				return new SuccessResult("İş arayan kişi eklendi");
+//			}
+//		}
+//		return new ErrorResult("Ekleme başarısız");
+		employeeDao.save(employee);
+		return new SuccessResult();
 		
 	}
 	

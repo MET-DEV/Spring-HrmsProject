@@ -5,4 +5,5 @@ import metproject.hrms.entities.concretes.Technology;
 
 public interface TechnologyService {
 	Result add(Technology technology,int employeeId);
+	Result delete(Technology technology);
 }

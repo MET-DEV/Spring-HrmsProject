@@ -29,4 +29,10 @@ public class LanguageManager implements LanguageService {
 		return new SuccessResult();
 	}
 
+	@Override
+	public Result delete(Language language) {
+		languageDao.delete(language);
+		return new SuccessResult();
+	}
+
 }

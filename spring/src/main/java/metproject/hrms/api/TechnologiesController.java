@@ -28,4 +28,8 @@ public class TechnologiesController {
 	public Result add(@RequestParam int employeeId,@RequestBody Technology technology) {
 		return techService.add(technology, employeeId);
 	}
+	@PostMapping("delete")
+	public Result delete(@RequestBody Technology technology) {
+		return techService.delete(technology);
+	}
 }

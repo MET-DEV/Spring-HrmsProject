@@ -3,7 +3,11 @@ package metproject.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import metproject.hrms.business.abstracts.JobAdService;
 import metproject.hrms.core.utilities.result.DataResult;
@@ -11,8 +15,9 @@ import metproject.hrms.core.utilities.result.Result;
 import metproject.hrms.core.utilities.result.SuccessDataResult;
 import metproject.hrms.core.utilities.result.SuccessResult;
 import metproject.hrms.dataAccess.abstracts.JobAdDao;
-import metproject.hrms.entities.concretes.City;
+import metproject.hrms.entities.concretes.AdFilter;
 import metproject.hrms.entities.concretes.JobAd;
+import net.bytebuddy.asm.Advice.This;
 
 @Service
 public class JobAdManager implements JobAdService {
@@ -82,5 +87,35 @@ public class JobAdManager implements JobAdService {
 		jobAdDao.save(jobAdd);
 		return new SuccessResult();
 	}
+
+
+	@Override
+	public DataResult<List<JobAd>> getAll(int pageNo, int pageSize) {
+		
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		return new SuccessDataResult<List<JobAd>>(jobAdDao.findAll(pageable).getContent());
+	}
+
+
+	
+	@Override
+	public Page<JobAd>  getByFilter(int workTypeId, int jobPositionId, int cityId, int pageNo, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		
+		return jobAdDao.getByWorkTypeIdAndJobPositionIdAndCityIdAndStatus_True(workTypeId, jobPositionId, cityId, pageable);
+	}
+
+
+	@Override
+	public DataResult<List<JobAd>> getByFilter(int pageNo, int pageSize, AdFilter filter) {
+		Pageable pageble=PageRequest.of(pageNo-1,pageSize);
+		
+		return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getByFilter(filter, pageble).getContent(),this.jobAdDao.getByFilter(filter, pageble).getNumberOfElements()+"");
+	}
+	
+	
+	
+	
+	
 
 }

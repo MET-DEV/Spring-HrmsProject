@@ -26,5 +26,10 @@ public class LanguagesController {
 		
 		return languageService.add(language,employeeId);
 	}
+	@PostMapping("/delete")
+	public Result delete(@RequestBody Language language) {
+		
+		return languageService.delete(language);
+	}
 	
 }

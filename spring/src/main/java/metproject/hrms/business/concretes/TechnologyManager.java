@@ -28,4 +28,10 @@ public class TechnologyManager implements TechnologyService{
 		technologyDao.save(technology);
 		return new SuccessResult();
 	}
+
+	@Override
+	public Result delete(Technology technology) {
+		technologyDao.delete(technology);
+		return new SuccessResult();
+	}
 }	

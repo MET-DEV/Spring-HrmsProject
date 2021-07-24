@@ -34,6 +34,10 @@ public class EmployeesController {
 	public DataResult<Employee> getByMail(String email){
 		return this.employeeService.emailFilter(email);
 	}
+	@GetMapping("/getbyid")
+	public DataResult<Employee> getByid(int id){
+		return this.employeeService.getById(id);
+	}
 	@PostMapping("/add")
 	public Result add(@RequestBody Employee employee) {
 		return this.employeeService.add(employee);
